@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Empleados</h1>
+
+   <table class="table table-striped table-houver table-bordered"
+        <thead>
+            <tr>
+                <th>Idempleado</th>
+                <th>Nombre</th>
+                <th>Tel</th>
+                <th>Sexo</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for empleado in empleados %}
+            <tr>
+                <td><a href="{{ path('empleado_show', { 'id': empleado.idempleado }) }}">{{ empleado.idempleado }}</a></td>
+                <td>{{ empleado.nombre }}</td>
+                <td>{{ empleado.tel }}</td>
+                <td>{{ empleado.sexo }}</td>
+                <td>
+                    <ul>
+                        
+                            <a class="btn btn-primary" href="{{ path('empleado_show', { 'id': empleado.idempleado }) }}">show</a>
+                            <a class="btn btn-warning" href="{{ path('empleado_edit', { 'id': empleado.idempleado }) }}">edit</a>
+                            <a class="btn btn-danger" title="Clic si desea Eliminar" href="{{path('empleado_delete',{"id":empleado.idempleado})}}" class="glyphicon glyphicon-trash" onclick="return confirm('¿Está seguro que desea Eliminar?')">Delete</a>           
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+            <a class="btn btn-success" href="{{ path('empleado_new') }}">Create a new employ</a>
+
+{% endblock %}

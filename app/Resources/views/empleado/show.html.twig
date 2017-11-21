@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Empleado</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Idempleado</th>
+                <td>{{ empleado.idempleado }}</td>
+            </tr>
+            <tr>
+                <th>Nombre</th>
+                <td>{{ empleado.nombre }}</td>
+            </tr>
+            <tr>
+                <th>Tel</th>
+                <td>{{ empleado.tel }}</td>
+            </tr>
+            <tr>
+                <th>Sexo</th>
+                <td>{{ empleado.sexo }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('empleado_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('empleado_edit', { 'id': empleado.idempleado }) }}">Edit</a>
+        </li>       
+    </ul>
+{% endblock %}

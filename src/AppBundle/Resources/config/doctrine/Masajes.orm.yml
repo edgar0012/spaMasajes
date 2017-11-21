@@ -1,0 +1,61 @@
+AppBundle\Entity\Masajes:
+    type: entity
+    table: masajes
+    indexes:
+        IX_Relationship1:
+            columns:
+                - IdClient
+        IX_Relationship2:
+            columns:
+                - IdEmpleado
+    id:
+        idmasaje:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            column: IdMasaje
+            generator:
+                strategy: IDENTITY
+    fields:
+        fechaservicio:
+            type: date
+            nullable: false
+            column: FechaServicio
+        tipomasaje:
+            type: string
+            nullable: false
+            length: 20
+            options:
+                fixed: false
+            column: TipoMasaje
+        lugar:
+            type: string
+            nullable: false
+            length: 20
+            options:
+                fixed: false
+            column: Lugar
+    manyToOne:
+        idclient:
+            targetEntity: Cliente
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                IdClient:
+                    referencedColumnName: IdClient
+            orphanRemoval: false
+        idempleado:
+            targetEntity: Empleado
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                IdEmpleado:
+                    referencedColumnName: IdEmpleado
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

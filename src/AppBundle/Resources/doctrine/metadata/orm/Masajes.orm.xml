@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="Masajes" table="masajes">
+    <indexes>
+      <index name="IX_Relationship1" columns="IdClient"/>
+      <index name="IX_Relationship2" columns="IdEmpleado"/>
+    </indexes>
+    <id name="idmasaje" type="integer" column="IdMasaje">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="fechaservicio" type="date" column="FechaServicio" nullable="false"/>
+    <field name="tipomasaje" type="string" column="TipoMasaje" length="20" nullable="false">
+      <options>
+        <option name="fixed"/>
+      </options>
+    </field>
+    <field name="lugar" type="string" column="Lugar" length="20" nullable="false">
+      <options>
+        <option name="fixed"/>
+      </options>
+    </field>
+    <many-to-one field="idempleado" target-entity="Empleado" fetch="LAZY">
+      <join-columns>
+        <join-column name="IdEmpleado" referenced-column-name="IdEmpleado"/>
+      </join-columns>
+    </many-to-one>
+    <many-to-one field="idclient" target-entity="Cliente" fetch="LAZY">
+      <join-columns>
+        <join-column name="IdClient" referenced-column-name="IdClient"/>
+      </join-columns>
+    </many-to-one>
+  </entity>
+</doctrine-mapping>

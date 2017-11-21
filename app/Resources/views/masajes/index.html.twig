@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Masajes</h1>
+
+    <table class="table table-striped table-houver table-bordered">
+        <thead>
+            <tr>
+                <th>Idmasaje</th>
+                <th>Fechaservicio</th>
+                <th>Tipomasaje</th>
+                <th>Lugar</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for masaje in masajes %}
+            <tr>
+                <td><a href="{{ path('masajes_show', { 'id': masaje.idmasaje }) }}">{{ masaje.idmasaje }}</a></td>
+                <td>{% if masaje.fechaservicio %}{{ masaje.fechaservicio|date('Y-m-d') }}{% endif %}</td>
+                <td>{{ masaje.tipomasaje }}</td>
+                <td>{{ masaje.lugar }}</td>
+                <td>
+                    <ul>
+                        
+                            <a class="btn btn-primary" href="{{ path('masajes_show', { 'id': masaje.idmasaje }) }}">show</a>
+                            <a class="btn btn-warning" href="{{ path('masajes_edit', { 'id': masaje.idmasaje }) }}">edit</a>
+                            <a class="btn btn-danger" title="Clic si desea Eliminar" href="{{path('masajes_delete',{"id":masaje.idmasaje})}}" class="glyphicon glyphicon-trash" onclick="return confirm('¿Está seguro que desea Eliminar?')">Eliminar</a>           
+                        
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+            <a class="btn btn-success" href="{{ path('masajes_new') }}">Create a new entry</a>
+
+{% endblock %}

@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Cliente</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Idclient</th>
+                <td>{{ cliente.idclient }}</td>
+            </tr>
+            <tr>
+                <th>Nombre</th>
+                <td>{{ cliente.nombre }}</td>
+            </tr>
+            <tr>
+                <th>Tel</th>
+                <td>{{ cliente.tel }}</td>
+            </tr>
+            <tr>
+                <th>Sexo</th>
+                <td>{{ cliente.sexo }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('cliente_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('cliente_edit', { 'id': cliente.idclient }) }}">Edit</a>
+        </li>        
+    </ul>
+{% endblock %}

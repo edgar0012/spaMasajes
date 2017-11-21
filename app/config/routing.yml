@@ -1,0 +1,63 @@
+masajes_login:
+    path: login/
+    defaults: {_controller: AppBundle:Masajes:login}
+
+masajes_index:
+    path: masajes/
+    defaults: {_controller: AppBundle:Masajes:index}
+
+masajes_new:
+    path: masajes/new
+    defaults: {_controller: AppBundle:Masajes:new}
+    
+masajes_show:
+    path: masajes/{id}
+    defaults: {_controller: AppBundle:Masajes:show}
+    
+masajes_edit:
+    path: masajes/{id}/edit
+    defaults: {_controller: AppBundle:Masajes:edit}
+
+masajes_delete:
+    path: masajes/{id}/delete
+    defaults: {_controller: AppBundle:Masajes:delete}
+
+empleado_index:
+    path: empleado
+    defaults: {_controller: AppBundle:Empleado:index}
+
+empleado_new:
+    path: empleado/new
+    defaults: {_controller: AppBundle:Empleado:new}
+    
+empleado_show:
+    path: empleado/{id}
+    defaults: {_controller: AppBundle:Empleado:show}
+    
+empleado_edit:
+    path: empleado/{id}/edit
+    defaults: {_controller: AppBundle:Empleado:edit}
+
+empleado_delete:
+    path: empleado/{id}/delete
+    defaults: {_controller: AppBundle:Empleado:delete}
+
+cliente_index:
+    path: cliente
+    defaults: {_controller: AppBundle:Cliente:index}
+
+cliente_new:
+    path: cliente/new
+    defaults: {_controller: AppBundle:Cliente:new}
+    
+cliente_show:
+    path: cliente/{id}
+    defaults: {_controller: AppBundle:Cliente:show}
+    
+cliente_edit:
+    path: cliente/{id}/edit
+    defaults: {_controller: AppBundle:Cliente:edit}
+
+cliente_delete:
+    path: cliente/{id}/delete
+    defaults: {_controller: AppBundle:Cliente:delete}

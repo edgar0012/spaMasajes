@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Masajes</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Idmasaje</th>
+                <td>{{ masaje.idmasaje }}</td>
+            </tr>
+            <tr>
+                <th>Fechaservicio</th>
+                <td>{% if masaje.fechaservicio %}{{ masaje.fechaservicio|date('Y-m-d') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Tipomasaje</th>
+                <td>{{ masaje.tipomasaje }}</td>
+            </tr>
+            <tr>
+                <th>Lugar</th>
+                <td>{{ masaje.lugar }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('masajes_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('masajes_edit', { 'id': masaje.idmasaje }) }}">Edit</a>
+        </li>     
+    </ul>
+{% endblock %}
